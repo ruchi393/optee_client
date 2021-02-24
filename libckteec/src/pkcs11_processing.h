@@ -100,4 +100,13 @@ CK_RV ck_derive_key(CK_SESSION_HANDLE session, CK_MECHANISM_PTR mechanism,
 		    CK_OBJECT_HANDLE base_key, CK_ATTRIBUTE_PTR attribs,
 		    CK_ULONG count, CK_OBJECT_HANDLE_PTR handle);
 
+CK_RV ck_wrap_key(CK_SESSION_HANDLE session, CK_MECHANISM_PTR mechanism,
+		  CK_OBJECT_HANDLE wrapping_key, CK_OBJECT_HANDLE key,
+		  CK_BYTE_PTR wrapped_key, CK_ULONG_PTR key_len);
+
+CK_RV ck_unwrap_key(CK_SESSION_HANDLE session, CK_MECHANISM_PTR mechanism,
+		    CK_OBJECT_HANDLE unnwrapping_key, CK_BYTE_PTR wrapped_key,
+		    CK_ULONG key_len, CK_ATTRIBUTE_PTR attribs, CK_ULONG count,
+		    CK_OBJECT_HANDLE_PTR handle);
+
 #endif /*LIBCKTEEC_PKCS11_PROCESSING_H*/
